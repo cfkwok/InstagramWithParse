@@ -53,12 +53,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153.59999999999999" y="270.74666666666667"/>
+            <point key="canvasLocation" x="89" y="270"/>
         </scene>
         <!--Item-->
         <scene sceneID="zRy-LN-PIi">
             <objects>
-                <viewController id="Yo8-gY-az2" sceneMemberID="viewController">
+                <viewController id="Yo8-gY-az2" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="viv-ff-IIf"/>
                         <viewControllerLayoutGuide type="bottom" id="PW0-Tg-GJs"/>
@@ -67,16 +67,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyM-93-7W6">
-                                <rect key="frame" x="132" y="268" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4y-zA-wCy">
+                                <rect key="frame" x="136" y="269" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="Yo8-gY-az2" eventType="touchUpInside" id="5vR-m4-7rh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="hbW-21-KAv"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="modal" identifier="returnLogin" id="j0K-1c-tjC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqa-U0-M3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +118,7 @@
         <!--Item-->
         <scene sceneID="vaC-hm-RCp">
             <objects>
-                <viewController id="JMc-Ix-Yv0" sceneMemberID="viewController">
+                <viewController id="JMc-Ix-Yv0" customClass="CameraViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v9z-tD-a0j"/>
                         <viewControllerLayoutGuide type="bottom" id="OEr-Xa-1Ty"/>
@@ -122,9 +126,27 @@
                     <view key="view" contentMode="scaleToFill" id="RbL-8y-kFP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSc-eu-Daz">
+                                <rect key="frame" x="136" y="448" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3X-7z-6Mf">
+                                <rect key="frame" x="20" y="237" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vlg-dl-zUv">
+                                <rect key="frame" x="20" y="62" width="280" height="167"/>
+                                <accessibility key="accessibilityConfiguration" hint="" label="Tap to take or select photo"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="9Ml-lq-dTb"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="Vlg-dl-zUv" id="SCm-78-caB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ep-6c-veZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
